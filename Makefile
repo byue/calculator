@@ -5,7 +5,10 @@ classes = $(sources:.java=.class)
 all: $(classes)
 
 clean :
-	rm -f *.class
+	find . -type f -name '*.class' -delete
+
+run: all
+	java Driver
 
 %.class : %.java
 	$(JAVAC) $<
