@@ -1,6 +1,5 @@
 import java.util.*;
 import java.util.regex.*;
-import java.util.stream.Collectors;
 
 public class ShuntingYard {
 	private static final Map<String, Integer> PRECEDENCE = new HashMap<String, Integer>() {{
@@ -60,13 +59,5 @@ public class ShuntingYard {
 			output.add(operators.pop());
 		}
 		return output;
-	}
-
-	public static void main(String[] args) {
-		String input =  "-(-5) + 6.5 * 2 - +10 / -2 * (((1 + 2.7) / 0.4) + -.7)";
-		String input2 = "4+18/(9-3)";
-		List<String> res = ShuntingYard.getPostfix(input2);
-		System.out.println(input2);
-		System.out.println(res.stream().map(Object::toString).collect(Collectors.joining(" ")));
 	}
 }
