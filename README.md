@@ -1,7 +1,8 @@
 # Calculator
 Calculator supports +, -, *, /, and parenthesis. Order of operations are applied. 
 
-I utilized the Djikstra's Shunting Algorithm and parsing reverse Polish notation to evaluate the mathematical expression.
+I utilized the Djikstra's Shunting-Yard Algorithm and parsing reverse Polish notation to evaluate the mathematical expression.
+To add a new operation, add new class extending Operator and implementing either UnaryOperator or BinaryOperator. Add class to factory. Update gui.
 
 Enter "make run" to run calculator program on command line. Pressing enter after inputting mathematical expression displays result. Exit with Cntrl-C. "make clean" cleans up .class files. "make" builds the program.
 
