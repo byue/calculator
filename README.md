@@ -1,5 +1,5 @@
 # Calculator
-Calculator supports +, -, *, /, and parenthesis. Order of operations are applied. 
+Calculator supports +, -, *, /, %, and parenthesis. Order of operations are applied. 
 
 I utilized the Djikstra's Shunting-Yard Algorithm and parsing reverse Polish notation to evaluate the mathematical expression.
 To add a new operation, add new class extending Operator and implementing either UnaryOperator or BinaryOperator. Add class to factory. Update gui.
