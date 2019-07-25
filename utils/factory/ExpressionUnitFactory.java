@@ -11,7 +11,9 @@ public class ExpressionUnitFactory {
 			return new Multiply();
 		} else if (rep.equals("/")) {
 			return new Divide();
-		} else if (rep.equals("U+")) {
+		} else if (rep.equals("%")) {
+         return new Modulo();
+      } else if (rep.equals("U+")) {
 			return new UnaryPlus();
 		} else if (rep.equals("U-")) {
 			return new UnaryMinus();

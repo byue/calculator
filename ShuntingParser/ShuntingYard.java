@@ -59,7 +59,7 @@ public class ShuntingYard {
 
 	private static String[] formatExpression(String expression) {
 		Pattern pattern =
-			 Pattern.compile("((\\d*\\.\\d+)|(\\d+)|([\\+\\-\\*/\\(\\)]))");
+			 Pattern.compile("((\\d*\\.\\d+)|(\\d+)|([\\%\\+\\-\\*/\\(\\)]))");
 		Matcher m = pattern.matcher(expression);
 		StringBuilder formattedExpression = new StringBuilder();
 		boolean first = true;
@@ -68,6 +68,16 @@ public class ShuntingYard {
 				first = false;
 			} else {
 				formattedExpression.append(" ");
+			}
+			String token = m.group();
+         int periodCount = 0;
+         for (int i = 0; i < token.length(); i++) {
+				if (token.charAt(i) == '.') {
+				    periodCount++;
+				}
+            if (periodCount == 2) {
+                throw new IllegalArgumentException("Bad formatting, extra decimal points");
+            }
 			}
 			formattedExpression.append(m.group());
 		}

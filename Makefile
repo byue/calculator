@@ -10,5 +10,8 @@ clean :
 run: all
 	@java Driver
 
+gui: all
+	@java CalculatorGui
+
 %.class : %.java
 	$(JAVAC) $<
