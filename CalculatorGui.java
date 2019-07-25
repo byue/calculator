@@ -41,6 +41,17 @@ public class CalculatorGui {
         JPanel buttonPanel = new JPanel(new GridLayout(SYMBOLS.length / COLUMNS, COLUMNS));        
         enterTextField = new JTextField();
         enterTextField.setPreferredSize(new Dimension(100, 100));
+	     enterTextField.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+ 				    try {
+					     double result = ReversePolishEvaluator.evaluate(ShuntingYard.getPostfix(enterTextField.getText()));
+                    enterTextField.setText(Double.toString(result));
+                } catch (Exception ex) {
+                    enterTextField.setText("ERROR");
+                }
+            }
+        });
         Font inputFont = new Font("Serif", Font.BOLD,50);
         Font buttonFont = new Font("monospaced", Font.BOLD, 32);
         enterTextField.setFont(inputFont);
